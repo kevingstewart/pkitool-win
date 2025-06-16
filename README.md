@@ -16,3 +16,8 @@ Also supports:
 * RSA and ECC certificates
 * RSA 1024, 2048, 4096, and 8192-bit
 * SHA1 and SHA256
+
+-----
+### Getting Started
+
+On a Windows machine (command terminal), execute the ```START_OPENSSL.cmd``` script, which will initiate a shell environment in a mapped folder (z:). In the environment, run any of the "make.*" commands to create respective key material. The command will provide usage information.
