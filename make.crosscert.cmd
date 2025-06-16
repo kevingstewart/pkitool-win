@@ -1,7 +1,7 @@
 @echo off
 
 rem ===================================================
-rem Author: k.stewart@f5.com
+rem Author: kevin-at-f5-dot-com
 rem ===================================================
 
 set processpath=
