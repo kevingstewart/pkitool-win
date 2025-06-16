@@ -1,0 +1,66 @@
+##### blah ########################################################### 
+HOME											= .
+RANDFILE										= ./PKI/.rnd
+oid_section										= new_oids
+
+################################################################
+[ new_oids ]
+
+################################################################
+[ ca ]
+default_ca										= CA_default
+
+################################################################
+[ CA_default ]
+dir													= ./PKI
+certs												= ./PKI
+new_certs_dir									= ./PKI
+crl_dir											= ./PKI
+RANDFILE										= ./PKI/rand
+database										= ./PKI/index.txt
+serial												= ./PKI/serial
+default_days									= 1024
+default_md										= sha1
+preserve											= no
+policy											= policy_match
+default_crl_days								= 30
+name_opt 										= ca_default
+cert_opt 										= ca_default
+
+unique_subject								= no
+
+################################################################
+[ policy_match ]
+countryName									= match
+#organizationName								= supplied
+#organizationalUnitName						= supplied
+commonName									= supplied
+
+################################################################
+[ req ]
+default_bits									= 1024
+distinguished_name							= req_distinguished_name
+x509_extensions								= v3_ca	
+input_password								= password
+output_password								= password
+string_mask 									= nombstr
+
+################################################################
+[ req_distinguished_name ]
+countryName									= Country Name (C=)
+countryName_default						= US
+countryName_min								= 2
+countryName_max							= 2
+0.organizationName							= Organization Name (O=)
+0.organizationalUnitName					= Organizational Unit Name 1 (OU=)
+0.organizationalUnitName_default		= MYDOMAIN.COM
+commonName									= LOCAL
+commonName_max							= 64
+commonName_default						= LOCAL_DEFAULT
+
+################################################################
+[ v3_ca ]
+## This section is used when creating a new CA certificate
+subjectKeyIdentifier							= hash
+basicConstraints								= critical, CA:TRUE
+keyUsage										= digitalSignature, keyCertSign, cRLSign
